@@ -1,4 +1,5 @@
 ﻿const { multiplyByTwo, isEven} = require('./utils.js')
+const { compose } = require('./compose.js')
 
 // Transducer => Transform + Reducer
 
@@ -19,13 +20,16 @@ const doubleMap=  map(multiplyByTwo)
 
 const pushReducer = (acc, val) => [...acc, val]
 
-const result = [1,2,3,4].reduce(
-    isNotTwoFilter(
-     isEvenFilter(
-      doubleMap(pushReducer)
-     )
-    )
+[1,2,3].reduce(
+    compose(
+        isNotTwoFilter,
+        isEvenFilter,
+        doubleMap
+    )(pushReducer)
     , []
-)
+);
 
-console.log(result)
+module.exports = {
+    map,
+    filter
+}
