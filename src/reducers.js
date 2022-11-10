@@ -38,3 +38,15 @@ module.exports = {
     map,
     filter
 }
+
+// Usage as Array.Prototype Methods (Traditional)
+
+const { multiplyByTwo, isEven } = require('./utils.js')
+
+xs.map(multiplyByTwo)
+xs.filter(isEven)
+
+// Usage as Reducer Methods (functional)
+
+map(multiplyByTwo, xs)
+filter(isEven, xs)
