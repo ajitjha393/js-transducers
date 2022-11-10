@@ -16,11 +16,16 @@ const multiplyByThree = num => num * 3
 
 const multiplyByTwo = num => num * 2
 
+const isVowel = char => ['a', 'e', 'i', 'o', 'u'].includes(char.toLowerCase())
+
+const toUpper = str => str.toUpperCase()
 
 module.exports = {
     timeIt,
     arrayFromRandoms,
     isEven,
     multiplyByThree,
-    multiplyByTwo
+    multiplyByTwo,
+    toUpper,
+    isVowel
 }
