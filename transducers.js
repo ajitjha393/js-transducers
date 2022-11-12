@@ -1,5 +1,6 @@
 ﻿const { multiplyByTwo, isEven, toUpper, isVowel} = require('./utils.js')
 const { compose } = require('./compose.js')
+const { pushReducer } = require('./reducers')
 
 // Transducer => Transform + Reducer
 
@@ -16,9 +17,7 @@ const filter =  predicate => reducer => {
 const isEvenFilter = filter(isEven)
 const isNotTwoFilter = filter(x => x !== 2)
 
-const doubleMap=  map(multiplyByTwo)
-
-const pushReducer = (acc, val) => [...acc, val]
+const doubleMap =  map(multiplyByTwo)
 
 const transduce = (xf, reducer, seed, collection) => {
     const transformedReducer = xf(reducer)
@@ -55,5 +54,6 @@ transduce(
 
 module.exports = {
     map,
-    filter
+    filter,
+    transduce
 }
