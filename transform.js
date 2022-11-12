@@ -1,7 +1,7 @@
-﻿const { timeIt, arrayFromRandoms, multiplyByThree, isEven } = require('./utils.js')
+﻿const { timeIt, arrayOfRandoms, multiplyByThree, isEven } = require('./utils.js')
 
-const arrayOfThousand = arrayFromRandoms(100)(1e3)
-const arrayOfMillion = arrayFromRandoms(100)(1e7)
+const arrayOfThousand = arrayOfRandoms(100)(1e3)
+const arrayOfMillion = arrayOfRandoms(100)(1e7)
 
 // Declarative Transformations
 timeIt('Thousands -> map', () => {

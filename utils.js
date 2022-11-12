@@ -4,7 +4,7 @@
     console.timeEnd(label)
 }
 
-const arrayFromRandoms = 
+const arrayOfRandoms = 
      randomCeil =>
      length => 
      Array.from({length: length}, () => 
@@ -22,7 +22,7 @@ const toUpper = str => str.toUpperCase()
 
 module.exports = {
     timeIt,
-    arrayFromRandoms,
+    arrayOfRandoms,
     isEven,
     multiplyByThree,
     multiplyByTwo,
