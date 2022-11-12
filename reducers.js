@@ -34,25 +34,23 @@ const map = () => (xf, xs) =>
 
 
 const filter = (p, xs) => 
-xs.reduce((acc, val) => { if(p(val)) [...acc, val] } , []) 
+xs.reduce((acc, val) => p(val) ? [...acc, val] : acc , []) 
 
 
 // Usage as Array.Prototype Methods (Traditional)
 
 const { multiplyByTwo, isEven } = require('./utils.js')
 
-xs.map(multiplyByTwo)
-xs.filter(isEven)
+arrayOfNumbers.map(multiplyByTwo)
+arrayOfNumbers.filter(isEven)
 
 // Usage as Reducer Methods (functional)
 
-map(multiplyByTwo, xs)
-filter(isEven, xs)
+map(multiplyByTwo, arrayOfNumbers)
+filter(isEven, arrayOfNumbers)
 
 
 module.exports = {
-    map,
-    filter,
     pushReducer,
     objReducer,
     setReducer
