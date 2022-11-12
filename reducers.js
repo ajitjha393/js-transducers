@@ -6,8 +6,10 @@ const setReducer = (acc, val) => acc.add(val)
 
 const objReducer = (acc, obj) => ({...acc, ...obj})
 
+const pushReducer = (acc, val) => ([...acc, val])
 
-// Reducing teansformation
+
+// Reducing transformation
 
 const arrayOfNumbers = [1, 2, 3, 4, 5]
 
@@ -20,7 +22,7 @@ const mySet = new Set([1,2,3,4]);
 
 numberOrStringReducer(6, 5) // 11
 numberOrStringReducer(user.name, user.age) // Bishwajit 22
-arrayOfNumbers.reduce(reducer, 0) // 15
+arrayOfNumbers.reduce(numberOrStringReducer, 0) // 15
 objReducer(user, { email:  "xyz.com" }) // { name: "Bishwajit",age: 22, email: "xyz.com" }
 setReducer(mySet, 4);
 
@@ -32,12 +34,8 @@ const map = () => (xf, xs) =>
 
 
 const filter = (p, xs) => 
-    xs.reduce((acc, val) => { if(p(val)) [...acc, val] } , []) 
+xs.reduce((acc, val) => { if(p(val)) [...acc, val] } , []) 
 
-module.exports = {
-    map,
-    filter
-}
 
 // Usage as Array.Prototype Methods (Traditional)
 
@@ -50,3 +48,12 @@ xs.filter(isEven)
 
 map(multiplyByTwo, xs)
 filter(isEven, xs)
+
+
+module.exports = {
+    map,
+    filter,
+    pushReducer,
+    objReducer,
+    setReducer
+}
