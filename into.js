@@ -26,7 +26,7 @@ into(
 )
 
 
-const res = into(
+into(
     {},
     compose(
         filter(isNumber),
@@ -35,7 +35,6 @@ const res = into(
     [1,2,3,"hello", () => "foo", 4]
 )
 
-console.log(res)
 
 // Export
 module.exports = {
