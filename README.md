@@ -33,6 +33,7 @@ We see a significant performance degradation.
 ## Imperative Solution
 
 Now we can go back to the imperative solution but will loose all the benefits that `Declarative` and `Functional Programming` provided us.
+
 The Truthness and Referentiality of the codebase will not be maintained 
 
 ```js
@@ -47,6 +48,7 @@ timeIt('million - imperative', () => {
 ```
 
 Is there a way where I can get best of both the worlds?
+
 And do not have to tradeoff on performance?
 
 And the answer is YES!  - ***Using transducers***
@@ -55,6 +57,7 @@ And the answer is YES!  - ***Using transducers***
 ## Transducer Solution
 
 I implemented these transducers and other functional adapter and helpers - `into` and `seq`
+
 Using this utiltiy we can rewrite the above mentioned code as - 
 
  
@@ -101,7 +104,7 @@ timeIt('million - transduce x4', () => {
 
 ## Measuring the Performance of our Transducers
 
-As it is evident from the metric, the transduers allow us to perform all these operations and transformations in a much performant way
+As it is evident from the metric, the transducers allow us to perform all these operations and transformations in a much performant way
 when dealing with huge amount of data and values that we want to iterate over.
 
 It also enables us with more flexibility over the type of collection as it is agnostic to the container and not limited to only using Arrays.
