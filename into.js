@@ -26,14 +26,16 @@ into(
 )
 
 
-into(
-    [],
+const res = into(
+    {},
     compose(
         filter(isNumber),
         map(x => ({ [x]: x }))
     ),
     [1,2,3,"hello", () => "foo", 4]
 )
+
+console.log(res)
 
 // Export
 module.exports = {
