@@ -4,9 +4,9 @@ const numberOrStringReducer = (acc, val) => acc + val
 
 const setReducer = (acc, val) => acc.add(val)
 
-const objReducer = (acc, obj) => ({...acc, ...obj})
+const objReducer = (acc, obj) => Object.assign(acc, obj)
 
-const pushReducer = (acc, val) => ([...acc, val])
+const pushReducer = (acc, val) => (acc.push(val), acc)
 
 
 // Reducing transformation
