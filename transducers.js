@@ -1,6 +1,7 @@
 ﻿const { multiplyByTwo, isEven, toUpper, isVowel} = require('./utils.js')
 const { compose } = require('./compose.js')
 const { pushReducer } = require('./reducers')
+const { isPlainObject, entries } = require('lodash')
 
 // Transducer => Transform + Reducer
 
@@ -19,9 +20,12 @@ const isNotTwoFilter = filter(x => x !== 2)
 
 const doubleMap =  map(multiplyByTwo)
 
-const transduce = (xf, reducer, seed, collection) => {
+const transduce = (xf, reducer, seed, _collection) => {
     const transformedReducer = xf(reducer)
     let accumulation = seed
+
+    const collection = isPlainObject(_collection) ? entries(_collection): _collection
+
     for (const val of collection) {
         accumulation = transformedReducer(accumulation, val)
     }
